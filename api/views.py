@@ -1,23 +1,25 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from .models import Event
+from .serializers import EventSerializer
+from rest_framework import viewsets
 from datetime import datetime
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 import json
 
 
-# Create your views here.
-def get_all_envents(request):
-    if request.method == 'GET':
-        events = Event.objects.all()
-        events_dict = {
-            'events': []
-        }
-        for event in events:
-            events_dict['events'].append({'title': event.title, 'date': event.date.strftime("%d-%m-%Y")})
+class EventViewSet(viewsets.ModelViewSet):
+    queryset = Event.objects.all()
+    serializer_class = EventSerializer
 
-        return JsonResponse(events_dict, status=200, safe=False)
-    else:
-        return HttpResponse(status=404, content="Error No Route Found")
+
+# Create your views here.
+@api_view(['GET'])
+def get_all_envents(request):
+    events = Event.objects.all()
+    serializer = EventSerializer(events, many=True)
+    return Response(serializer.data)
 
 
 def create_event(request):
