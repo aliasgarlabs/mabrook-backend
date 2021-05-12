@@ -15,7 +15,6 @@ RUN apt-get install gcc
 COPY requirements.txt /usr/src/app/
 RUN pip install --upgrade pip setuptools wheel 
 RUN pip install --no-cache-dir -r requirements.txt
-RUN sudo pip install djangorestframework
 COPY . /usr/src/app
 
 # For Django
