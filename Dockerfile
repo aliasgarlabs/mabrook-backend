@@ -13,7 +13,8 @@ WORKDIR /usr/src/app
 RUN apt-get install gcc
 
 COPY requirements.txt /usr/src/app/
-RUN pip install --upgrade pip setuptools wheel rest_framework
+RUN pip install --upgrade pip setuptools wheel
+RUN pip install djangorestframework
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /usr/src/app
