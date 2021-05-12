@@ -13,7 +13,7 @@ WORKDIR /usr/src/app
 RUN apt-get install gcc
 
 COPY requirements.txt /usr/src/app/
-RUN pip install --upgrade pip setuptools wheel
+RUN pip install --upgrade pip setuptools wheel python_2_unicode_compatible
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /usr/src/app
