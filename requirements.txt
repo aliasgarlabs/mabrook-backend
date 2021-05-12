@@ -45,3 +45,4 @@ Twisted==21.2.0
 txaio==21.2.1
 virtualenv==20.4.3
 zope.interface==5.3.0
+python_2_unicode_compatible
