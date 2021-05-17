@@ -5,6 +5,7 @@ from .serializers import EventSerializer
 from rest_framework import viewsets
 from datetime import datetime
 from rest_framework.decorators import api_view
+from rest_framework.views import APIView
 from rest_framework.response import Response
 import json
 
