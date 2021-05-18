@@ -3,8 +3,8 @@ from . import views
 from rest_framework import routers
 from rest_framework.authtoken.views import obtain_auth_token
 
-# router = routers.DefaultRouter()
-# router.register(r'', views.EventViewSet)
+router = routers.DefaultRouter()
+router.register(r'', views.EventViewSet)
 
 urlpatterns = [
     path('events', include(router.urls), name='get_events'),
