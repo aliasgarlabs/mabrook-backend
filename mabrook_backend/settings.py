@@ -90,8 +90,13 @@ WSGI_APPLICATION = 'mabrook_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd4qv2a31kis17v',
+        'USER': 'qgfygrnczucjeo',
+        'PASSWORD': '82d9148a232f40155b2d3d85d6a68e73f1c5cde7bbd31a187734ae05427a0990',
+        'HOST': 'ec2-34-233-0-64.compute-1.amazonaws.com',
+        'PORT': '5432',
+        'OPTIONS': {'sslmode': 'require'}
     }
 }
 
