@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.db.models.base import Model
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
@@ -79,6 +80,9 @@ class Users(AbstractBaseUser):
     # def has_module_perms(self, app_label):
     #     return self.has
 
+class FireAndIce(models.Model):
+    emoji = models.CharField(max_length=55)
+    date = models.DateField()
 
 # Create your models here.
 class Event(models.Model):
