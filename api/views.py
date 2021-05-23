@@ -16,7 +16,7 @@ class EventViewSet(viewsets.ModelViewSet):
 
 
 class FireAndIceViewSet(viewsets.ModelViewSet):
-    queryset = FireAndIceSerializer.objects.all()
+    queryset = FireAndIce.objects.all()
     serializer_class = FireAndIceSerializer
 
 
