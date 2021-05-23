@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from .models import Event
+from .models import Event, FireAndIce
 from .serializers import EventSerializer
 from rest_framework import viewsets
 from datetime import datetime
@@ -20,6 +20,14 @@ class EventViewSet(viewsets.ModelViewSet):
 def get_all_envents(request):
     events = Event.objects.all()
     serializer = EventSerializer(events, many=True)
+    return Response(serializer.data)
+
+    # Create your views here.
+@api_view(['GET'])
+def get_fire_or_ice(request):
+    fire_or_ice = FireAndIce.objects.latest('date')
+
+    serializer = EventSerializer(fire_or_ice)
     return Response(serializer.data)
 
 
