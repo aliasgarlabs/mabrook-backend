@@ -15,6 +15,11 @@ class EventViewSet(viewsets.ModelViewSet):
     serializer_class = EventSerializer
 
 
+class FireAndIceViewSet(viewsets.ModelViewSet):
+    queryset = FireAndIceSerializer.objects.all()
+    serializer_class = FireAndIceSerializer
+
+
 # Create your views here.
 @api_view(['GET'])
 def get_all_envents(request):
