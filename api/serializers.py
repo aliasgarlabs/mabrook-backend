@@ -7,7 +7,7 @@ class EventSerializer(serializers.ModelSerializer):
         model = Event
         fields = ('title', 'date')
 
-class FireAndIce(serializers.ModelSerializer):
+class FireAndIceSerializer(serializers.ModelSerializer):
     class Meta:
         model = FireAndIce
         fields = ('emoji', 'date')

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from .models import Event, FireAndIce
-from .serializers import EventSerializer
+from .serializers import EventSerializer, FireAndIceSerializer
 from rest_framework import viewsets
 from datetime import datetime
 from rest_framework.decorators import api_view
@@ -27,7 +27,7 @@ def get_all_envents(request):
 def get_fire_or_ice(request):
     fire_or_ice = FireAndIce.objects.latest('date')
 
-    serializer = EventSerializer(fire_or_ice)
+    serializer = FireAndIceSerializer(fire_or_ice)
     return Response(serializer.data)
 
 
