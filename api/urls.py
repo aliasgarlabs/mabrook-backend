@@ -5,6 +5,7 @@ from rest_framework.authtoken.views import obtain_auth_token
 
 router = routers.DefaultRouter()
 router.register(r'', views.EventViewSet)
+router.register(r'', views.FireAndIceViewSet)
 
 urlpatterns = [
     path('fireandice', include(router.urls), name='get_fire_or_ice'),
