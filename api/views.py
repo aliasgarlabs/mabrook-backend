@@ -28,6 +28,8 @@ def get_all_envents(request):
     return Response(serializer.data)
 
     # Create your views here.
+
+
 @api_view(['GET', 'POST'])
 def get_fire_or_ice(request):
     if request.method == 'GET':
@@ -36,12 +38,14 @@ def get_fire_or_ice(request):
         serializer = FireAndIceSerializer(fire_or_ice)
         return Response(serializer.data)
     if request.method == 'POST':
-        emoji = request.REQUEST.get('emoji')
-        date = datetime.strptime(request.REQUEST.get('date'), '%d-%m-%Y')
+        data = json.loads(request.data)
+        emoji = data['emoji']
+        date = datetime.strptime(data['date'], '%d-%m-%Y')
         fire_or_ice = FireAndIce.objects.create(emoji=emoji, date=date)
         return HttpResponse(status=201, content=f"{fire_or_ice.emoji} event was created")
     else:
         return HttpResponse(status=404, content='error')
+
 
 def create_event(request):
     if request.method == 'POST':
