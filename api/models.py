@@ -82,7 +82,7 @@ class Users(AbstractBaseUser):
 
 class FireAndIce(models.Model):
     emoji = models.CharField(max_length=55)
-    date = models.DateField()
+    date = models.DateTimeField()
 
 # Create your models here.
 class Event(models.Model):

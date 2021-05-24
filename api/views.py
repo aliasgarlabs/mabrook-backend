@@ -38,9 +38,9 @@ def get_fire_or_ice(request):
         serializer = FireAndIceSerializer(fire_or_ice)
         return Response(serializer.data)
     if request.method == 'POST':
-        data = json.loads(request.data)
+        data = request.data
         emoji = data['emoji']
-        date = datetime.strptime(data['date'], '%d-%m-%Y')
+        date = data['date'], '%Y-%m-%d %H:%M:%S'
         fire_or_ice = FireAndIce.objects.create(emoji=emoji, date=date)
         return HttpResponse(status=201, content=f"{fire_or_ice.emoji} event was created")
     else:
