@@ -84,6 +84,9 @@ class FireAndIce(models.Model):
     emoji = models.CharField(max_length=55)
     date = models.DateTimeField()
 
+    def __str__(self):
+            return f'{self.emoji}'
+
 # Create your models here.
 class Event(models.Model):
     title = models.CharField(max_length=55)

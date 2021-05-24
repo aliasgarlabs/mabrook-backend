@@ -40,7 +40,7 @@ def get_fire_or_ice(request):
     if request.method == 'POST':
         data = request.data
         emoji = data['emoji']
-        date = data['date'], '%Y-%m-%d %H:%M:%S'
+        date = datetime.strptime(data['date'], '%Y-%m-%d %H:%M:%S')
         fire_or_ice = FireAndIce.objects.create(emoji=emoji, date=date)
         return HttpResponse(status=201, content=f"{fire_or_ice.emoji} event was created")
     else:
